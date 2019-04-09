@@ -51,21 +51,21 @@ class WAppBar3 extends StatelessWidget {
     double stateBarHeight = MediaQuery.of(context).padding.top;
     print(stateBarHeight);
     return new Container(
-      height: 56.0,
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      margin: const EdgeInsets.fromLTRB(0, stateBarHeight, 0, 0),
+      height: 56.0+stateBarHeight,
+      padding: EdgeInsets.fromLTRB(8, stateBarHeight, 8, 0),
+      //padding: const EdgeInsets.symmetric(horizontal: 8.0),
       decoration: new BoxDecoration(color: Colors.blue),
       child: new Row(
         children: <Widget>[
           new IconButton(
               icon: new Icon(Icons.menu,color: Colors.white),
-              onPressed: null
+              onPressed: null,
           ),
           new Expanded(
               child: titleWidget
           ),
           new IconButton(
-              icon: new Icon(Icons.search,color: Colors.white,),
+              icon: new Icon(Icons.search,color: Colors.white),
               onPressed: null
           )
         ],
