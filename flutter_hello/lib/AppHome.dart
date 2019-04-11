@@ -29,6 +29,7 @@ class RouteItemView extends StatelessWidget {
       onTap: (){
         Navigator.pushNamed(context, routeBean.routeKey);
       },
+
     );
   }
 }
@@ -65,15 +66,11 @@ class AppHome extends StatelessWidget {
             children: routeItems.map<Widget>((item){
               return new RouteItemView(routeBean: item);
             }).toList(),
-        )
+          )
         ),
       ),
       // initialRoute: routeItems[0].routeKey,
-      routes: <String, WidgetBuilder> {
-        '/l1': (BuildContext context) => FirstProject1(),
-        '/l2': (BuildContext context) => FirstProject1(),
-        '/l3': (BuildContext context) => FirstProject1(),
-      },
+      routes: routeWidgetBuilder,
     );
   }
 }

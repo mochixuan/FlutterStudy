@@ -6,9 +6,7 @@ class LearnWidget3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new WScaffold3(),
-    );
+    return new WScaffold3();
   }
 
 }
@@ -58,7 +56,11 @@ class WAppBar3 extends StatelessWidget {
       child: new Row(
         children: <Widget>[
           new IconButton(
-              icon: new Icon(Icons.menu,color: Colors.white),
+              icon: new IconButton(
+                  color: Colors.white,
+                  icon:Icon(Icons.arrow_back),
+                  onPressed:() => Navigator.pop(context)
+              ),
               onPressed: null,
           ),
           new Expanded(

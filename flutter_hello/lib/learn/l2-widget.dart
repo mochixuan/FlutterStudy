@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 class LearnWidget2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Widget',
-      // home: new MyScaffold(),
-      home: new TutorialHome(),
-    );
+    return new TutorialHome();
   }
 }
 
@@ -83,7 +79,11 @@ class TutorialHome extends StatelessWidget {
     return new Scaffold(
       appBar: new AppBar(
         leading: new IconButton(
-          icon: new Icon(Icons.menu,color: Color(0xffffffff),),
+          icon: new IconButton(
+              color: Colors.white,
+              icon:Icon(Icons.arrow_back),
+              onPressed:() => Navigator.pop(context)
+          ),
           tooltip: 'Navigation menu',
           onPressed: null,
         ),

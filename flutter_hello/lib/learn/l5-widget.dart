@@ -66,6 +66,11 @@ class _ShoppingListState extends State<ShoppingList> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+        leading: new IconButton(
+            color: Colors.white,
+            icon:Icon(Icons.arrow_back),
+            onPressed:() => Navigator.pop(context)
+        ),
         title: new Text("Shopping List"),
       ),
       body: new ListView(
@@ -97,17 +102,15 @@ class LearnWidget5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new ShoppingList(
-        products: <Product>[
-          new Product(name: 'Android'),
-          new Product(name: 'iOS'),
-          new Product(name: 'React-Native'),
-          new Product(name: 'Flutter'),
-          new Product(name: 'Weex'),
-          new Product(name: 'H5'),
-        ],
-      )
+    return new ShoppingList(
+      products: <Product>[
+        new Product(name: 'Android'),
+        new Product(name: 'iOS'),
+        new Product(name: 'React-Native'),
+        new Product(name: 'Flutter'),
+        new Product(name: 'Weex'),
+        new Product(name: 'H5'),
+      ],
     );
   }
 

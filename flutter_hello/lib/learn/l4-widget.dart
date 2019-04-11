@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 class LearnWidget4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
+    return new Scaffold(
         appBar: new AppBar(
+          leading: new IconButton(
+              color: Colors.white,
+              icon:Icon(Icons.arrow_back),
+              onPressed:() => Navigator.pop(context)
+          ),
           title: new Text(
             "状态组件",
             style: Theme.of(context).primaryTextTheme.title
           ),
         ),
         body: new Counter(),
-      ),
     );
   }
   
