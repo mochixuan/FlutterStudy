@@ -56,12 +56,9 @@ class WAppBar3 extends StatelessWidget {
       child: new Row(
         children: <Widget>[
           new IconButton(
-              icon: new IconButton(
-                  color: Colors.white,
-                  icon:Icon(Icons.arrow_back),
-                  onPressed:() => Navigator.pop(context)
-              ),
-              onPressed: null,
+              color: Colors.white,
+              icon:Icon(Icons.arrow_back),
+              onPressed:() => Navigator.pop(context)
           ),
           new Expanded(
               child: titleWidget
