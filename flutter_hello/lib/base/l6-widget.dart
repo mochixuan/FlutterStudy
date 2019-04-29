@@ -20,6 +20,7 @@ class AnimatedPage extends StatelessWidget {
 }
 
 class AnimWidget1 extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
 

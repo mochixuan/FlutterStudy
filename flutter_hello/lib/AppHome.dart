@@ -11,6 +11,10 @@ import 'package:flutter_hello/widget/w1-mixed.dart';
 
 import 'package:flutter_hello/base/l6-widget.dart';
 
+import 'package:flutter_hello/pages/TabBarPage.dart';
+
+import 'package:flutter_hello/future/l7-stream.dart';
+
 class RouteBean {
 
   RouteBean({this.routeKey,this.routeWidget,this.routeTag});
@@ -59,6 +63,9 @@ class AppHome extends StatelessWidget {
 
     routeItems.add(new RouteBean(routeKey: '/w1',routeWidget: (BuildContext context) => W1Mixed(),routeTag:'杂七杂八'));
     routeItems.add(new RouteBean(routeKey: '/a1',routeWidget: (BuildContext context) => AnimatedPage(),routeTag:'动画'));
+
+    routeItems.add(new RouteBean(routeKey: '/b1',routeWidget: (BuildContext context) => TabMainPageWidget(),routeTag:'基本界面'));
+    routeItems.add(new RouteBean(routeKey: '/l7',routeWidget: (BuildContext context) => FuturePage(),routeTag:'Future练习'));
 
     routeItems.forEach((bean){
       routeWidgetBuilder[bean.routeKey] = bean.routeWidget;
