@@ -13,7 +13,12 @@ import 'package:flutter_hello/base/l6-widget.dart';
 
 import 'package:flutter_hello/pages/TabBarPage.dart';
 
-import 'package:flutter_hello/future/l7-stream.dart';
+import 'package:flutter_hello/future/l7-state.dart';
+import 'package:flutter_hello/future/l8-scoped.dart';
+import 'package:flutter_hello/future/l9-stream.dart';
+import 'package:flutter_hello/future/l10-rxdart.dart';
+import 'package:flutter_hello/future/l11-bloc.dart';
+import 'package:flutter_hello/future/l12-redux.dart';
 
 class RouteBean {
 
@@ -65,7 +70,13 @@ class AppHome extends StatelessWidget {
     routeItems.add(new RouteBean(routeKey: '/a1',routeWidget: (BuildContext context) => AnimatedPage(),routeTag:'动画'));
 
     routeItems.add(new RouteBean(routeKey: '/b1',routeWidget: (BuildContext context) => TabMainPageWidget(),routeTag:'基本界面'));
+
     routeItems.add(new RouteBean(routeKey: '/l7',routeWidget: (BuildContext context) => FuturePage(),routeTag:'Future练习'));
+    routeItems.add(new RouteBean(routeKey: '/l8',routeWidget: (BuildContext context) => ScopedLearn(),routeTag:'ScopedModel'));
+    routeItems.add(new RouteBean(routeKey: '/l9',routeWidget: (BuildContext context) => StreamLearn(),routeTag:'Stream学习'));
+    routeItems.add(new RouteBean(routeKey: '/l10',routeWidget: (BuildContext context) => RxDartLearn(),routeTag:'RxDart学习'));
+    routeItems.add(new RouteBean(routeKey: '/l11',routeWidget: (BuildContext context) => BlocLearn(),routeTag:'Bloc学习'));
+    routeItems.add(new RouteBean(routeKey: '/l12',routeWidget: (BuildContext context) => ReduxLearn(),routeTag:'Redux学习'));
 
     routeItems.forEach((bean){
       routeWidgetBuilder[bean.routeKey] = bean.routeWidget;
