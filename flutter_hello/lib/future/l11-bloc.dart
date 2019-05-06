@@ -23,31 +23,43 @@ class BlocState extends State<BlocLearn> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            color: Colors.white,
-            icon:Icon(Icons.arrow_back),
-            onPressed:() => Navigator.pop(context)
+
+    return BlocProvider(
+      child: new Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+              color: Colors.white,
+              icon:Icon(Icons.arrow_back),
+              onPressed:() => Navigator.pop(context)
+          ),
+          title: new Text("BlocLearn"),
         ),
-        title: new Text("StreamLearn"),
+        body: ItemView()
       ),
-      body: new Container(
-        child: ListTile(
-            leading: Icon(Icons.accessibility),
-            title: Text(model.name),
-            subtitle: Text(model.desc),
-            trailing: IconButton(
-                icon: Text(model.age.toString()),
-                onPressed: () {
-                  model.increaseAge();
-                  // 第二中方式： rebuildOnChange属性默认为false，所以会导致无法刷新（同步）状态的情况发生，需要手动指定rebuildOnChange：true
-                  // final twoMethod = ScopedModel.of<PersonModel>(context);
-                  // twoMethod.increaseAge();
-                }
-            )
-        ),
-      ),
+    );
+  }
+}
+
+class ItemView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final PersonBloc bloc = BlocProvider.of(context);
+    return StreamBuilder(
+        stream: bloc.stream,
+        initialData: bloc.value,
+        builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+          return ListTile(
+              leading: Icon(Icons.accessibility),
+              title: Text(bloc.name),
+              subtitle: Text(bloc.desc),
+              trailing: IconButton(
+                  icon: Text(snapshot.data.toString()),
+                  onPressed: () {
+                    bloc.increase();
+                  }
+              )
+          );
+        }
     );
   }
 }
@@ -60,10 +72,11 @@ class PersonBloc {
   StreamController<int> _controller;
 
   PersonBloc(){
-    _controller = StreamController<int>();
+    _controller = StreamController<int>.broadcast();
   }
 
-  Stream<int> get value => _controller.stream;
+  Stream<int> get stream => _controller.stream;
+  int get value => age;
 
   increase() {
     _controller.sink.add(++age);
