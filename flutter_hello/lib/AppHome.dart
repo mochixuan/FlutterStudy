@@ -20,6 +20,8 @@ import 'package:flutter_hello/future/l10-rxdart.dart';
 import 'package:flutter_hello/future/l11-bloc.dart';
 import 'package:flutter_hello/future/l12-redux.dart';
 
+import 'package:flutter_hello/scroll/l13-scroll.dart';
+
 class RouteBean {
 
   RouteBean({this.routeKey,this.routeWidget,this.routeTag});
@@ -77,6 +79,8 @@ class AppHome extends StatelessWidget {
     routeItems.add(new RouteBean(routeKey: '/l10',routeWidget: (BuildContext context) => RxDartLearn(),routeTag:'RxDart学习'));
     routeItems.add(new RouteBean(routeKey: '/l11',routeWidget: (BuildContext context) => BlocLearn(),routeTag:'Bloc学习'));
     routeItems.add(new RouteBean(routeKey: '/l12',routeWidget: (BuildContext context) => ReduxLearn(),routeTag:'Redux学习'));
+
+    routeItems.add(new RouteBean(routeKey: '/l13',routeWidget: (BuildContext context) => ScrollLearn(),routeTag:'ScrollView'));
 
     routeItems.forEach((bean){
       routeWidgetBuilder[bean.routeKey] = bean.routeWidget;
