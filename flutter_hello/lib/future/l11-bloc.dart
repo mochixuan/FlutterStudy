@@ -34,7 +34,12 @@ class BlocState extends State<BlocLearn> {
           ),
           title: new Text("BlocLearn"),
         ),
-        body: ItemView()
+        body: new Column(
+          children: <Widget>[
+            ItemView(),
+            ItemView()
+          ],
+        )
       ),
     );
   }
@@ -43,19 +48,18 @@ class BlocState extends State<BlocLearn> {
 class ItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final PersonBloc bloc = BlocProvider.of(context);
     return StreamBuilder(
-        stream: bloc.stream,
-        initialData: bloc.value,
+        stream: BlocProvider.of(context).stream,
+        initialData: BlocProvider.of(context).value,
         builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
           return ListTile(
               leading: Icon(Icons.accessibility),
-              title: Text(bloc.name),
-              subtitle: Text(bloc.desc),
+              title: Text(BlocProvider.of(context).name),
+              subtitle: Text(BlocProvider.of(context).desc),
               trailing: IconButton(
                   icon: Text(snapshot.data.toString()),
                   onPressed: () {
-                    bloc.increase();
+                    BlocProvider.of(context).increase();
                   }
               )
           );
@@ -88,7 +92,9 @@ class PersonBloc {
 
 }
 
+// ignore: must_be_immutable
 class BlocProvider extends InheritedWidget {
+
   PersonBloc bloc = PersonBloc();
 
   BlocProvider({Key key,Widget child}) : super(key: key,child: child);
