@@ -6,10 +6,10 @@ import 'package:flutter_hello/base/l2-widget.dart'; //2. Widget 框架总览
 import 'package:flutter_hello/base/l3-widget.dart'; //3. Widget 框架总览
 import 'package:flutter_hello/base/l4-widget.dart'; //4. Widget 框架总览
 import 'package:flutter_hello/base/l5-widget.dart'; //5. Widget 框架总览
+import 'package:flutter_hello/base/l6-widget.dart';
+import 'package:flutter_hello/base/l15-liftcycle.dart'; //生命周期
 
 import 'package:flutter_hello/widget/w1-mixed.dart';
-
-import 'package:flutter_hello/base/l6-widget.dart';
 
 import 'package:flutter_hello/pages/TabBarPage.dart';
 
@@ -22,6 +22,7 @@ import 'package:flutter_hello/future/l12-redux.dart';
 import 'package:flutter_hello/future/l14-bloc1.dart';
 
 import 'package:flutter_hello/scroll/l13-scroll.dart';
+import 'package:flutter_hello/anim/l16-anim.dart';
 
 class RouteBean {
 
@@ -83,6 +84,8 @@ class AppHome extends StatelessWidget {
 
     routeItems.add(new RouteBean(routeKey: '/l13',routeWidget: (BuildContext context) => ScrollLearn(),routeTag:'ScrollView'));
     routeItems.add(new RouteBean(routeKey: '/l14',routeWidget: (BuildContext context) => BlocLearn1(),routeTag:'Bloc1'));
+    routeItems.add(new RouteBean(routeKey: '/l15',routeWidget: (BuildContext context) => LiftCycle(),routeTag:'生命周期'));
+    routeItems.add(new RouteBean(routeKey: '/l16',routeWidget: (BuildContext context) => AnimateLearn(),routeTag:'动画'));
 
     routeItems.forEach((bean){
       routeWidgetBuilder[bean.routeKey] = bean.routeWidget;
